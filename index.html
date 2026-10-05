@@ -5,6 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SMA-BE Pricing Cards — CSS Subgrid</title>
   <style>
+    @font-face {
+      font-family: 'Etelka';
+      src: url('fonts/Etelka-Light.woff2') format('woff2'),
+           url('fonts/Etelka-Light.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Etelka';
+      src: url('fonts/Etelka-Text.woff2') format('woff2'),
+           url('fonts/Etelka-Text.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Etelka';
+      src: url('fonts/Etelka-Bold.woff2') format('woff2'),
+           url('fonts/Etelka-Bold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
     *,
     *::before,
     *::after {
@@ -596,12 +621,119 @@
 
     <!-- Card 2: 1 ribbon, 2 features, conditional price, footnote -->
     <article class="card card--1-promo">
-      <div class="card__ribbon">
-        <div class="ribbon__item">
-          <svg class="ribbon__icon" viewBox="0 0 19.58 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.178 10.833V18.333H5.915C4.45 18.333 3.263 17.12 3.263 15.625v-4.792h5.915Zm7.139 0v4.792c0 1.496-1.187 2.708-2.652 2.708H10.402v-7.5h5.915ZM11.83 1.667c1.464 0 2.652 1.212 2.652 2.708 0 .537-.154 1.038-.418 1.46l2.05-.002c.563 0 1.02.389 1.02.868v2.431c0 .48-.457.868-1.02.868l-5.712-.001V5.833H9.178V10L3.467 10c-.563 0-1.02-.389-1.02-.868V6.7c0-.48.457-.868 1.02-.868l2.05.001a2.727 2.727 0 0 1-.418-1.459c0-1.496 1.187-2.708 2.652-2.708.82 0 1.554.381 2.04.978a2.618 2.618 0 0 1 2.04-.978ZM7.75 2.917c-.788 0-1.427.653-1.427 1.458 0 .765.577 1.393 1.31 1.453l.118.005h1.428V4.375l-.005-.12c-.06-.749-.673-1.338-1.423-1.338Zm4.08 0c-.789 0-1.428.653-1.428 1.458v1.458h1.428c.789 0 1.428-.653 1.428-1.458s-.64-1.458-1.428-1.458Z" fill="#3E235B"/></svg>
-          <span class="ribbon__text">Zon &amp; Wind Flex One: &euro;100 korting</span>
+      <!-- impeccable-variants-start 63d27c00 -->
+      <div data-impeccable-variants="63d27c00" data-impeccable-variant-count="3" style="display: contents">
+        <div data-impeccable-variant="original" style="display: none">
+          <div class="card__ribbon">
+            <div class="ribbon__item">
+              <svg class="ribbon__icon" viewBox="0 0 19.58 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.178 10.833V18.333H5.915C4.45 18.333 3.263 17.12 3.263 15.625v-4.792h5.915Zm7.139 0v4.792c0 1.496-1.187 2.708-2.652 2.708H10.402v-7.5h5.915ZM11.83 1.667c1.464 0 2.652 1.212 2.652 2.708 0 .537-.154 1.038-.418 1.46l2.05-.002c.563 0 1.02.389 1.02.868v2.431c0 .48-.457.868-1.02.868l-5.712-.001V5.833H9.178V10L3.467 10c-.563 0-1.02-.389-1.02-.868V6.7c0-.48.457-.868 1.02-.868l2.05.001a2.727 2.727 0 0 1-.418-1.459c0-1.496 1.187-2.708 2.652-2.708.82 0 1.554.381 2.04.978a2.618 2.618 0 0 1 2.04-.978ZM7.75 2.917c-.788 0-1.427.653-1.427 1.458 0 .765.577 1.393 1.31 1.453l.118.005h1.428V4.375l-.005-.12c-.06-.749-.673-1.338-1.423-1.338Zm4.08 0c-.789 0-1.428.653-1.428 1.458v1.458h1.428c.789 0 1.428-.653 1.428-1.458s-.64-1.458-1.428-1.458Z" fill="#3E235B"/></svg>
+              <span class="ribbon__text">Zon &amp; Wind Flex One: &euro;100 korting</span>
+            </div>
+          </div>
+        </div>
+        <!-- Variants: insert below this line -->
+        <style data-impeccable-css="63d27c00">
+          [data-impeccable-variant="1"] > .v1-ribbon {
+            background: var(--color-ribbon-bg);
+            padding: var(--p-v1-pad, 8px) 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+          [data-impeccable-variant="1"] .v1-ribbon__icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+          }
+          [data-impeccable-variant="1"] .v1-ribbon__text {
+            font-family: var(--font);
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 18px;
+            letter-spacing: 0.3px;
+            color: var(--color-ribbon-text);
+          }
+
+          [data-impeccable-variant="2"] > .v2-ribbon {
+            padding: 16px 24px 0;
+            display: flex;
+          }
+          [data-impeccable-variant="2"] .v2-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-ribbon-bg);
+            border: 1px solid var(--color-ribbon-border);
+            border-radius: 20px;
+            padding: 5px 14px;
+          }
+          [data-impeccable-variant="2"] .v2-chip__icon {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+          }
+          [data-impeccable-variant="2"] .v2-chip__text {
+            font-family: var(--font);
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.3px;
+            color: var(--color-ribbon-text);
+          }
+
+          [data-impeccable-variant="3"] > .v3-ribbon {
+            display: flex;
+            flex-direction: column;
+          }
+          [data-impeccable-variant="3"] .v3-accent {
+            height: 3px;
+            background: var(--color-ribbon-border);
+          }
+          [data-impeccable-variant="3"] .v3-note {
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          }
+          [data-impeccable-variant="3"] .v3-note__icon {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+          }
+          [data-impeccable-variant="3"] .v3-note__text {
+            font-family: var(--font);
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.4px;
+            color: var(--color-ribbon-text);
+          }
+        </style>
+        <div data-impeccable-variant="1" data-impeccable-params='[{"id":"v1-pad","kind":"range","min":4,"max":16,"step":1,"default":8,"label":"Vertical padding"}]'>
+          <div class="v1-ribbon">
+            <svg class="v1-ribbon__icon" viewBox="0 0 19.58 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.178 10.833V18.333H5.915C4.45 18.333 3.263 17.12 3.263 15.625v-4.792h5.915Zm7.139 0v4.792c0 1.496-1.187 2.708-2.652 2.708H10.402v-7.5h5.915ZM11.83 1.667c1.464 0 2.652 1.212 2.652 2.708 0 .537-.154 1.038-.418 1.46l2.05-.002c.563 0 1.02.389 1.02.868v2.431c0 .48-.457.868-1.02.868l-5.712-.001V5.833H9.178V10L3.467 10c-.563 0-1.02-.389-1.02-.868V6.7c0-.48.457-.868 1.02-.868l2.05.001a2.727 2.727 0 0 1-.418-1.459c0-1.496 1.187-2.708 2.652-2.708.82 0 1.554.381 2.04.978a2.618 2.618 0 0 1 2.04-.978ZM7.75 2.917c-.788 0-1.427.653-1.427 1.458 0 .765.577 1.393 1.31 1.453l.118.005h1.428V4.375l-.005-.12c-.06-.749-.673-1.338-1.423-1.338Zm4.08 0c-.789 0-1.428.653-1.428 1.458v1.458h1.428c.789 0 1.428-.653 1.428-1.458s-.64-1.458-1.428-1.458Z" fill="#3E235B"/></svg>
+            <span class="v1-ribbon__text">Zon &amp; Wind Flex One: &euro;100 korting</span>
+          </div>
+        </div>
+        <div data-impeccable-variant="2" style="display: none">
+          <div class="v2-ribbon">
+            <span class="v2-chip">
+              <svg class="v2-chip__icon" viewBox="0 0 19.58 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.178 10.833V18.333H5.915C4.45 18.333 3.263 17.12 3.263 15.625v-4.792h5.915Zm7.139 0v4.792c0 1.496-1.187 2.708-2.652 2.708H10.402v-7.5h5.915ZM11.83 1.667c1.464 0 2.652 1.212 2.652 2.708 0 .537-.154 1.038-.418 1.46l2.05-.002c.563 0 1.02.389 1.02.868v2.431c0 .48-.457.868-1.02.868l-5.712-.001V5.833H9.178V10L3.467 10c-.563 0-1.02-.389-1.02-.868V6.7c0-.48.457-.868 1.02-.868l2.05.001a2.727 2.727 0 0 1-.418-1.459c0-1.496 1.187-2.708 2.652-2.708.82 0 1.554.381 2.04.978a2.618 2.618 0 0 1 2.04-.978ZM7.75 2.917c-.788 0-1.427.653-1.427 1.458 0 .765.577 1.393 1.31 1.453l.118.005h1.428V4.375l-.005-.12c-.06-.749-.673-1.338-1.423-1.338Zm4.08 0c-.789 0-1.428.653-1.428 1.458v1.458h1.428c.789 0 1.428-.653 1.428-1.458s-.64-1.458-1.428-1.458Z" fill="#3E235B"/></svg>
+              <span class="v2-chip__text">Zon &amp; Wind Flex One: &euro;100 korting</span>
+            </span>
+          </div>
+        </div>
+        <div data-impeccable-variant="3" style="display: none">
+          <div class="v3-ribbon">
+            <div class="v3-accent"></div>
+            <div class="v3-note">
+              <svg class="v3-note__icon" viewBox="0 0 19.58 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.178 10.833V18.333H5.915C4.45 18.333 3.263 17.12 3.263 15.625v-4.792h5.915Zm7.139 0v4.792c0 1.496-1.187 2.708-2.652 2.708H10.402v-7.5h5.915ZM11.83 1.667c1.464 0 2.652 1.212 2.652 2.708 0 .537-.154 1.038-.418 1.46l2.05-.002c.563 0 1.02.389 1.02.868v2.431c0 .48-.457.868-1.02.868l-5.712-.001V5.833H9.178V10L3.467 10c-.563 0-1.02-.389-1.02-.868V6.7c0-.48.457-.868 1.02-.868l2.05.001a2.727 2.727 0 0 1-.418-1.459c0-1.496 1.187-2.708 2.652-2.708.82 0 1.554.381 2.04.978a2.618 2.618 0 0 1 2.04-.978ZM7.75 2.917c-.788 0-1.427.653-1.427 1.458 0 .765.577 1.393 1.31 1.453l.118.005h1.428V4.375l-.005-.12c-.06-.749-.673-1.338-1.423-1.338Zm4.08 0c-.789 0-1.428.653-1.428 1.458v1.458h1.428c.789 0 1.428-.653 1.428-1.458s-.64-1.458-1.428-1.458Z" fill="#3E235B"/></svg>
+              <span class="v3-note__text">&euro;100 korting &mdash; Zon &amp; Wind Flex One</span>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- impeccable-variants-end 63d27c00 -->
 
       <h2 class="card__title">Zon &amp; Wind Flex One +<br>Aardgas Fix One</h2>
 
