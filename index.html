@@ -188,18 +188,10 @@
       margin-bottom: 40px;
     }
 
-    @media (max-width: 1024px) {
-      .page-content { padding: 32px 16px 40px; }
-      .page-heading { font-size: 28px; line-height: 36px; }
-      .stepper { gap: 0; padding: 8px 16px 0; overflow-x: auto; }
-      .stepper__step { font-size: 13px; white-space: nowrap; }
-      .stepper__chevron { margin: 0 8px; }
-    }
-
     /* ===== GRID ===== */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 420px));
+      grid-template-columns: minmax(0, 420px);
       gap: 24px;
       justify-content: center;
       align-items: start;
@@ -444,7 +436,40 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
+      .page-content { padding: 32px 24px 40px; }
+      .page-heading { font-size: 28px; line-height: 36px; }
+      .stepper {
+        gap: 0; padding: 8px 16px 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .stepper::-webkit-scrollbar { display: none; }
+      .stepper__step { font-size: 13px; white-space: nowrap; }
+      .stepper__chevron { margin: 0 8px; }
       .pricing-grid { gap: 16px; }
+    }
+
+    @media (max-width: 639px) {
+      .site-header { padding: 12px 16px; }
+      .header__logo img { height: 36px; }
+
+      .page-content { padding: 24px 16px 32px; }
+      .page-heading { font-size: 24px; line-height: 32px; margin-bottom: 8px; }
+      .page-intro { font-size: 15px; line-height: 22px; margin-bottom: 24px; }
+
+      .card { gap: 16px; }
+      .card__ribbon:has(.ribbon__item) { padding: 12px 16px; gap: 12px; }
+      .card__title { padding: 0 16px; font-size: 22px; line-height: 26px; }
+      .card__features { padding: 0 16px; }
+      .card__price { padding: 0 16px; }
+      .card__conditional { padding: 0 16px; }
+      .card__cta { padding: 0 16px; }
+      .card__footnotes:has(.footnote) { padding: 0 16px 16px; }
+      .conditional__box:has(.conditional__label) { padding: 12px; }
+
+      .cta__button { height: 52px; font-size: 16px; }
+      .cta__link { font-size: 16px; }
     }
 
     /* ===== FLUSH MODE (desktop) ===== */
