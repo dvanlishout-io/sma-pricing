@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SMA-BE Pricing Cards — CSS Subgrid</title>
+  <title>SMA-BE Pricing Cards — Flush</title>
   <style>
     @font-face {
       font-family: 'Etelka';
@@ -62,10 +62,141 @@
       font-weight: 400;
       background: var(--color-bg);
       color: var(--color-text-primary);
-      padding: 60px 40px;
+      margin: 0;
     }
 
-    /* ===== PARENT GRID ===== */
+    /* ===== HEADER ===== */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #fff;
+    }
+
+    .header__back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+
+    .header__back:hover { color: var(--color-link); }
+
+    .header__back svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .header__logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .header__logo img {
+      height: 48px;
+      width: auto;
+    }
+
+    .header__close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-text-primary);
+    }
+
+    .header__close svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ===== STEPPER ===== */
+    .stepper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 12px 24px 0;
+      background: #fff;
+      border-bottom: 1px solid #e4e0e0;
+    }
+
+    .stepper__step {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 12px 0;
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.3px;
+      color: var(--color-text-secondary);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    .stepper__step--active {
+      font-weight: 700;
+      color: var(--color-text-primary);
+      border-bottom-color: var(--color-button);
+    }
+
+    .stepper__chevron {
+      width: 16px;
+      height: 16px;
+      margin: 0 12px;
+      color: var(--color-text-secondary);
+      flex-shrink: 0;
+    }
+
+    /* ===== PAGE CONTENT ===== */
+    .page-content {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 48px 40px 60px;
+    }
+
+    .page-heading {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 44px;
+      color: var(--color-text-primary);
+      margin-bottom: 12px;
+    }
+
+    .page-intro {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.3px;
+      color: var(--color-text-secondary);
+      max-width: 880px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .page-content { padding: 32px 16px 40px; }
+      .page-heading { font-size: 28px; line-height: 36px; }
+      .stepper { gap: 0; padding: 8px 16px 0; overflow-x: auto; }
+      .stepper__step { font-size: 13px; white-space: nowrap; }
+      .stepper__chevron { margin: 0 8px; }
+    }
+
+    /* ===== GRID ===== */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(360px, 420px));
@@ -74,7 +205,7 @@
       align-items: start;
     }
 
-    /* ===== CARD ===== */
+    /* ===== CARD (mobile: stacked) ===== */
     .card {
       display: flex;
       flex-direction: column;
@@ -84,6 +215,8 @@
       overflow: clip;
       box-shadow: 0px 4px 12px 0px var(--color-shadow);
     }
+
+    .card__bg { display: none; }
 
     /* — Ribbon — */
     .card__ribbon:has(.ribbon__item) {
@@ -126,7 +259,6 @@
       font-weight: 700;
       font-size: 24px;
       line-height: 28px;
-      letter-spacing: 0px;
       color: var(--color-text-primary);
       padding: 0 24px;
     }
@@ -193,9 +325,7 @@
     }
 
     /* — Conditional price — */
-    .card__conditional {
-      padding: 0 24px;
-    }
+    .card__conditional { padding: 0 24px; }
 
     .conditional__box:has(.conditional__label) {
       background: var(--color-ribbon-bg);
@@ -246,7 +376,7 @@
       letter-spacing: 0.3px;
     }
 
-    /* — CTA (button + link) — */
+    /* — CTA — */
     .card__cta {
       display: flex;
       flex-direction: column;
@@ -271,9 +401,7 @@
       transition: background 0.15s;
     }
 
-    .cta__button:hover {
-      background: #005a3e;
-    }
+    .cta__button:hover { background: #005a3e; }
 
     .cta__link {
       display: inline-flex;
@@ -297,9 +425,7 @@
     }
 
     /* — Footnotes — */
-    .card__footnotes:has(.footnote) {
-      padding: 0 24px 24px;
-    }
+    .card__footnotes:has(.footnote) { padding: 0 24px 24px; }
 
     .footnote {
       display: flex;
@@ -313,229 +439,17 @@
       color: var(--color-text-secondary);
     }
 
-    .footnote__asterisk {
-      flex-shrink: 0;
-    }
-
-    .footnote__text p + p {
-      margin-top: 8px;
-    }
-
-    .card__bg { display: none; }
-
-    /* Compact card: empty ribbon/footnotes divs provide spacing via flex gap */
-
-    /* Cross-card row alignment via subgrid (only when 3 columns fit) */
-    @media (min-width: 1228px) {
-      .pricing-grid {
-        grid-template-columns: repeat(3, minmax(360px, 420px));
-        grid-template-rows: repeat(7, auto);
-      }
-
-      .card {
-        display: grid;
-        grid-template-rows: subgrid;
-        grid-row: 1 / 8;
-      }
-
-      .card--1-promo .card__ribbon {
-        align-self: start;
-        min-height: 52px;
-      }
-    }
+    .footnote__asterisk { flex-shrink: 0; }
+    .footnote__text p + p { margin-top: 8px; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
-      body {
-        padding: 40px 16px;
-      }
+      .pricing-grid { gap: 16px; }
+    }
 
+    /* ===== FLUSH MODE (desktop) ===== */
+    @media (min-width: 1228px) {
       .pricing-grid {
-        gap: 16px;
-      }
-    }
-
-    /* ===== VIEW TOGGLE ===== */
-    .view-toggle {
-      display: none;
-      margin: 0 auto 32px;
-      width: fit-content;
-      background: #e4e0e0;
-      border-radius: 8px;
-      padding: 4px;
-    }
-
-    .toggle__btn {
-      padding: 8px 24px;
-      border: none;
-      background: none;
-      font-family: var(--font);
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 20px;
-      color: var(--color-text-secondary);
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s, box-shadow 0.15s;
-    }
-
-    .toggle__btn--active {
-      background: var(--color-card);
-      color: var(--color-text-primary);
-      box-shadow: 0 1px 3px rgba(47, 45, 45, 0.12);
-    }
-
-    @media (min-width: 1228px) {
-      .view-toggle {
-        display: flex;
-      }
-    }
-
-    .feature--placeholder,
-    .conditional__placeholder {
-      display: none;
-    }
-
-    /* ===== ALIGNED MODE (desktop only) ===== */
-    @media (min-width: 1228px) {
-      .pricing-grid--aligned {
-        grid-template-rows: auto;
-      }
-
-      .pricing-grid--aligned .card {
-        display: flex;
-        grid-row: auto;
-      }
-
-      /* Reset subgrid align-self so ribbon fills card width */
-      .pricing-grid--aligned .card__ribbon {
-        align-self: stretch;
-      }
-
-      /* Push cards down to align titles */
-      .pricing-grid--aligned .card--1-promo {
-        margin-top: 53px;
-      }
-      .pricing-grid--aligned .card--compact .card__title {
-        padding-top: 24px;
-      }
-
-      /* Placeholder keeps price rows aligned (28px content diff − 24px gap = 4px) */
-      .pricing-grid--aligned .feature--placeholder {
-        display: block;
-        height: 4px;
-      }
-
-      /* Hide empty ribbon/footnotes; keep conditional as spacer for CTA alignment */
-      .pricing-grid--aligned .card__ribbon:empty,
-      .pricing-grid--aligned .card__footnotes:empty {
-        display: none;
-      }
-
-      /* Empty conditional becomes a spacer to align CTAs across cards */
-      .pricing-grid--aligned .card__conditional:empty {
-        height: 92px;
-      }
-
-      /* Bottom padding on compact card (no footnotes) */
-      .pricing-grid--aligned .card--compact {
-        margin-top: 105px;
-        padding-bottom: 24px;
-      }
-    }
-
-    /* ===== TABLE MODE (desktop only) ===== */
-    @media (min-width: 1228px) {
-      .pricing-grid--table {
-        grid-template-columns: max-content repeat(3, 1fr);
-        row-gap: 0;
-        column-gap: 0;
-      }
-
-      .pricing-grid--table .row-header {
-        display: flex;
-        align-items: start;
-        align-self: stretch;
-        grid-column: 1;
-        padding: 16px 24px 16px 0;
-        font-family: var(--font);
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 20px;
-        letter-spacing: 0.3px;
-        color: var(--color-text-secondary);
-        border-bottom: 1px solid #e4e0e0;
-      }
-
-      .pricing-grid--table .row-header:nth-child(1) { grid-row: 1; }
-      .pricing-grid--table .row-header:nth-child(2) { grid-row: 2; }
-      .pricing-grid--table .row-header:nth-child(3) { grid-row: 3; }
-      .pricing-grid--table .row-header:nth-child(4) { grid-row: 4; }
-      .pricing-grid--table .row-header:nth-child(5) { grid-row: 5; }
-      .pricing-grid--table .row-header:nth-child(6) { grid-row: 6; }
-      .pricing-grid--table .row-header:nth-child(7) { grid-row: 7; border-bottom: none; }
-
-      .pricing-grid--table article:nth-of-type(1) { grid-column: 2; }
-      .pricing-grid--table article:nth-of-type(2) { grid-column: 3; }
-      .pricing-grid--table article:nth-of-type(3) { grid-column: 4; }
-
-      body:has(.pricing-grid--table) {
-        background: var(--color-card);
-      }
-
-      .pricing-grid--table .card {
-        background: none;
-        box-shadow: none;
-        border-radius: 0;
-        overflow: visible;
-        gap: 0;
-      }
-
-      .pricing-grid--table .card > * {
-        padding: 16px 20px;
-        border-bottom: 1px solid #e4e0e0;
-      }
-
-      /* Title becomes column header — move to first row */
-      .pricing-grid--table .card__title {
-        order: -1;
-        padding: 20px 20px;
-      }
-
-      .pricing-grid--table .card__ribbon:has(.ribbon__item) {
-        background: none;
-        padding: 16px 20px;
-        gap: 8px;
-      }
-
-      .pricing-grid--table .ribbon__item {
-        background: var(--color-ribbon-bg);
-        padding: 4px 12px;
-        border-radius: 20px;
-        width: fit-content;
-      }
-
-      .pricing-grid--table .ribbon__item--bordered {
-        padding-bottom: 4px;
-        border-bottom: none;
-      }
-
-      .pricing-grid--table .card--1-promo .card__ribbon {
-        align-self: stretch;
-      }
-
-      .pricing-grid--table .card__footnotes {
-        border-bottom: none;
-      }
-
-      .pricing-grid--table .card__footnotes:has(.footnote) {
-        padding: 16px 20px;
-      }
-    }
-
-    /* ===== FLUSH MODE (desktop only) ===== */
-    @media (min-width: 1228px) {
-      .pricing-grid--flush {
         --flush-py: 12px;
         --flush-py-outer: 24px;
         grid-template-columns: repeat(3, minmax(360px, 420px));
@@ -544,21 +458,27 @@
         column-gap: 24px;
       }
 
-      .pricing-grid--flush .card { display: contents; }
-      .pricing-grid--flush .card > * { grid-column: var(--col); }
+      .card {
+        display: contents;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        overflow: visible;
+      }
+      .card > * { grid-column: var(--col); }
 
       /* Row map */
-      .pricing-grid--flush .card__bg          { grid-row: 2 / 8; }
-      .pricing-grid--flush .card__ribbon      { grid-row: 1; }
-      .pricing-grid--flush .card__title       { grid-row: 2; }
-      .pricing-grid--flush .card__features    { grid-row: 3; }
-      .pricing-grid--flush .card__price       { grid-row: 4; }
-      .pricing-grid--flush .card__conditional { grid-row: 5; }
-      .pricing-grid--flush .card__cta         { grid-row: 6; }
-      .pricing-grid--flush .card__footnotes   { grid-row: 7; }
+      .card__bg          { grid-row: 2 / 8; }
+      .card__ribbon      { grid-row: 1; }
+      .card__title       { grid-row: 2; }
+      .card__features    { grid-row: 3; }
+      .card__price       { grid-row: 4; }
+      .card__conditional { grid-row: 5; }
+      .card__cta         { grid-row: 6; }
+      .card__footnotes   { grid-row: 7; }
 
       /* Card surface */
-      .pricing-grid--flush .card__bg {
+      .card__bg {
         display: block;
         background: var(--color-card);
         border-radius: var(--radius-card);
@@ -567,62 +487,81 @@
         z-index: 0;
         position: relative;
       }
-      .pricing-grid--flush .card > *:not(.card__bg) {
+      .card > *:not(.card__bg) {
         z-index: 1;
         position: relative;
       }
 
       /* Vertical rhythm */
-      .pricing-grid--flush .card__title,
-      .pricing-grid--flush .card__features,
-      .pricing-grid--flush .card__price,
-      .pricing-grid--flush .card__conditional,
-      .pricing-grid--flush .card__cta {
+      .card__title,
+      .card__features,
+      .card__price,
+      .card__conditional,
+      .card__cta {
         padding-block: var(--flush-py);
       }
-      .pricing-grid--flush .card__title { padding-top: var(--flush-py-outer); }
-      .pricing-grid--flush .card__cta { padding-bottom: var(--flush-py-outer); }
-      .pricing-grid--flush .card__footnotes:has(.footnote) {
+      .card__title { padding-top: var(--flush-py-outer); }
+      .card__cta { padding-bottom: var(--flush-py-outer); }
+      .card__footnotes:has(.footnote) {
         padding-block: 0 var(--flush-py-outer);
       }
 
       /* Ribbon tab */
-      .pricing-grid--flush .card__ribbon:has(.ribbon__item) {
+      .card__ribbon:has(.ribbon__item) {
         align-self: end;
         border-radius: var(--radius-card) var(--radius-card) 0 0;
       }
 
       /* Content-driven shape */
-      .pricing-grid--flush .card:has(.ribbon__item) .card__bg {
+      .card:has(.ribbon__item) .card__bg {
         border-radius: 0 0 var(--radius-card) var(--radius-card);
       }
-      .pricing-grid--flush .card:not(:has(.footnote)) .card__bg {
+      .card:not(:has(.footnote)) .card__bg {
         grid-row-end: 7;
       }
 
       /* Collapse empties */
-      .pricing-grid--flush .card__ribbon:empty,
-      .pricing-grid--flush .card__conditional:empty,
-      .pricing-grid--flush .card__footnotes:empty,
-      .pricing-grid--flush .feature--placeholder {
+      .card__ribbon:empty,
+      .card__conditional:empty,
+      .card__footnotes:empty {
         display: none;
       }
     }
-
   </style>
 </head>
 <body>
 
-  <div class="view-toggle">
-    <button class="toggle__btn toggle__btn--active" data-view="cards">Cards</button>
-    <button class="toggle__btn" data-view="aligned">Aligned</button>
-    <button class="toggle__btn" data-view="table">Tabel</button>
-    <button class="toggle__btn" data-view="flush">Flush</button>
-  </div>
+  <header class="site-header">
+    <a href="#" class="header__back">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Vorige
+    </a>
+    <div class="header__logo">
+      <img src="eneco-logo.png" alt="Eneco">
+    </div>
+    <button class="header__close" aria-label="Sluiten">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </header>
 
-  <div class="pricing-grid">
+  <nav class="stepper" aria-label="Stappen">
+    <span class="stepper__step">1. Berekening</span>
+    <svg class="stepper__chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="stepper__step stepper__step--active">2. Aanbod</span>
+    <svg class="stepper__chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="stepper__step">3. Gegevens</span>
+    <svg class="stepper__chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="stepper__step">4. Overzicht</span>
+    <svg class="stepper__chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="stepper__step">5. Bevestiging</span>
+  </nav>
 
-    <!-- Card 1: 2 ribbons, 3 features, conditional price, footnotes -->
+  <main class="page-content">
+    <h1 class="page-heading">Onze voorstellen op basis van je gegevens</h1>
+    <p class="page-intro">De weergegeven prijzen zijn indicatief en berekend op basis van jouw opgegeven verbruik en huidige marktprijzen. Je definitieve tarief kan verschillen afhankelijk van jouw exacte verbruikspatroon en de marktomstandigheden op het moment van overstap.</p>
+
+    <div class="pricing-grid">
+
     <article class="card">
       <div class="card__bg"></div>
       <div class="card__ribbon">
@@ -635,9 +574,7 @@
           <span class="ribbon__text">Aardgas Flex One: &euro;100 korting</span>
         </div>
       </div>
-
       <h2 class="card__title">Zon &amp; Wind Flex One +<br>Aardgas Flex One</h2>
-
       <ul class="card__features">
         <li class="feature">
           <svg class="feature__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18a1 1 0 0 1-.71-.29l-4-4a1.004 1.004 0 1 1 1.42-1.42L9 15.59l9.29-9.3a1.004 1.004 0 0 1 1.42 1.42l-10 10A1 1 0 0 1 9 18Z" fill="#009B65"/></svg>
@@ -652,13 +589,11 @@
           <span class="feature__text">100% groene en Belgische elektriciteit</span>
         </li>
       </ul>
-
       <div class="card__price">
         <span class="price__euro">&euro;</span>
         <span class="price__amount">119,12</span>
         <span class="price__period">per maand</span>
       </div>
-
       <div class="card__conditional">
         <div class="conditional__box">
           <div class="conditional__label">
@@ -671,12 +606,10 @@
           </div>
         </div>
       </div>
-
       <div class="card__cta">
         <a class="cta__button" href="#">Product selecteren</a>
         <a class="cta__link" href="#">Bekijk de details</a>
       </div>
-
       <footer class="card__footnotes">
         <div class="footnote">
           <span class="footnote__asterisk">*</span>
@@ -688,8 +621,7 @@
       </footer>
     </article>
 
-    <!-- Card 2: 1 ribbon, 2 features, conditional price, footnote -->
-    <article class="card card--1-promo">
+    <article class="card">
       <div class="card__bg"></div>
       <div class="card__ribbon">
         <div class="ribbon__item">
@@ -697,9 +629,7 @@
           <span class="ribbon__text">Zon &amp; Wind Flex One: &euro;100 korting</span>
         </div>
       </div>
-
       <h2 class="card__title">Zon &amp; Wind Flex One +<br>Aardgas Fix One</h2>
-
       <ul class="card__features">
         <li class="feature">
           <svg class="feature__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18a1 1 0 0 1-.71-.29l-4-4a1.004 1.004 0 1 1 1.42-1.42L9 15.59l9.29-9.3a1.004 1.004 0 0 1 1.42 1.42l-10 10A1 1 0 0 1 9 18Z" fill="#009B65"/></svg>
@@ -710,14 +640,11 @@
           <span class="feature__text">Profiteer meteen van prijsdalingen</span>
         </li>
       </ul>
-      <div class="feature--placeholder"></div>
-
       <div class="card__price">
         <span class="price__euro">&euro;</span>
         <span class="price__amount">119,12</span>
         <span class="price__period">per maand</span>
       </div>
-
       <div class="card__conditional">
         <div class="conditional__box">
           <div class="conditional__label">
@@ -730,12 +657,10 @@
           </div>
         </div>
       </div>
-
       <div class="card__cta">
         <a class="cta__button" href="#">Product selecteren</a>
         <a class="cta__link" href="#">Bekijk de details</a>
       </div>
-
       <footer class="card__footnotes">
         <div class="footnote">
           <span class="footnote__asterisk">*</span>
@@ -746,12 +671,10 @@
       </footer>
     </article>
 
-    <!-- Card 3: no ribbon, 3 features, no conditional, no footnotes -->
-    <article class="card card--compact">
+    <article class="card">
       <div class="card__bg"></div>
       <div class="card__ribbon"></div>
       <h2 class="card__title">Zon &amp; Wind Vast +<br>Aardgas Vast</h2>
-
       <ul class="card__features">
         <li class="feature">
           <svg class="feature__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18a1 1 0 0 1-.71-.29l-4-4a1.004 1.004 0 1 1 1.42-1.42L9 15.59l9.29-9.3a1.004 1.004 0 0 1 1.42 1.42l-10 10A1 1 0 0 1 9 18Z" fill="#009B65"/></svg>
@@ -766,57 +689,25 @@
           <span class="feature__text">100% groene en Belgische elektriciteit</span>
         </li>
       </ul>
-
       <div class="card__price">
         <span class="price__euro">&euro;</span>
         <span class="price__amount">119,12</span>
         <span class="price__period">per maand</span>
       </div>
-
       <div class="card__conditional"></div>
-
       <div class="card__cta">
         <a class="cta__button" href="#">Product selecteren</a>
         <a class="cta__link" href="#">Bekijk de details</a>
       </div>
-
       <footer class="card__footnotes"></footer>
-
     </article>
 
-  </div>
+    </div>
+  </main>
 
   <script>
-    const grid = document.querySelector('.pricing-grid');
-    const rowHeaders = ['', 'Promoties', 'Kenmerken', 'Maandprijs', 'Met korting', '', 'Voorwaarden'];
-
     document.querySelectorAll('.pricing-grid .card').forEach((card, i) => {
       card.style.setProperty('--col', i + 1);
-    });
-
-    function setRowHeaders(show) {
-      grid.querySelectorAll('.row-header').forEach(el => el.remove());
-      if (show) {
-        const firstCard = grid.querySelector('.card');
-        rowHeaders.forEach(label => {
-          const div = document.createElement('div');
-          div.className = 'row-header';
-          if (label) div.textContent = label;
-          grid.insertBefore(div, firstCard);
-        });
-      }
-    }
-
-    document.querySelectorAll('.toggle__btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.toggle__btn').forEach(b => b.classList.remove('toggle__btn--active'));
-        btn.classList.add('toggle__btn--active');
-        grid.classList.remove('pricing-grid--table', 'pricing-grid--aligned', 'pricing-grid--flush');
-        if (btn.dataset.view === 'table') grid.classList.add('pricing-grid--table');
-        if (btn.dataset.view === 'aligned') grid.classList.add('pricing-grid--aligned');
-        if (btn.dataset.view === 'flush') grid.classList.add('pricing-grid--flush');
-        setRowHeaders(btn.dataset.view === 'table');
-      });
     });
   </script>
 
