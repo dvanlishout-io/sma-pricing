@@ -288,8 +288,10 @@
     /* — Price — */
     .card__price {
       display: flex;
-      align-items: flex-end;
-      gap: 8px;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 8px;
+      row-gap: 0;
       padding: 0 24px;
     }
 
@@ -307,7 +309,17 @@
       line-height: 36px;
     }
 
+    .price__original {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-text-secondary);
+      text-decoration: line-through;
+    }
+
     .price__period {
+      flex-basis: 100%;
       font-family: var(--font);
       font-weight: 300;
       font-size: 16px;
@@ -616,7 +628,8 @@
       </ul>
       <div class="card__price">
         <span class="price__euro">&euro;</span>
-        <span class="price__amount">119,12</span>
+        <span class="price__amount">126,29</span>
+        <span class="price__original">&euro; 139,50</span>
         <span class="price__period">per maand</span>
       </div>
       <div class="card__conditional">
@@ -626,7 +639,7 @@
             <svg class="conditional__info" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.667A8.333 8.333 0 1 0 10 18.333 8.333 8.333 0 0 0 10 1.667Zm0 12.5a.833.833 0 0 1-.833-.834V10a.833.833 0 1 1 1.666 0v3.333a.833.833 0 0 1-.833.834ZM10.833 7.5H9.167V5.833h1.666V7.5Z" fill="#2F2D2D"/></svg>
           </div>
           <div class="conditional__price">
-            <span class="conditional__price-amount">&euro; 102,45</span>
+            <span class="conditional__price-amount">&euro; 109,87</span>
             <span class="conditional__price-period">per maand</span>
           </div>
         </div>
@@ -667,7 +680,8 @@
       </ul>
       <div class="card__price">
         <span class="price__euro">&euro;</span>
-        <span class="price__amount">119,12</span>
+        <span class="price__amount">102,45</span>
+        <span class="price__original">&euro; 119,12</span>
         <span class="price__period">per maand</span>
       </div>
       <div class="card__conditional">
@@ -677,7 +691,7 @@
             <svg class="conditional__info" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.667A8.333 8.333 0 1 0 10 18.333 8.333 8.333 0 0 0 10 1.667Zm0 12.5a.833.833 0 0 1-.833-.834V10a.833.833 0 1 1 1.666 0v3.333a.833.833 0 0 1-.833.834ZM10.833 7.5H9.167V5.833h1.666V7.5Z" fill="#2F2D2D"/></svg>
           </div>
           <div class="conditional__price">
-            <span class="conditional__price-amount">&euro; 102,45</span>
+            <span class="conditional__price-amount">&euro; 89,90</span>
             <span class="conditional__price-period">per maand</span>
           </div>
         </div>
